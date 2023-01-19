@@ -1,14 +1,16 @@
-function App() {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          You are running this on {process.env.NODE_ENV} and the URL to it is <br />
-          {process.env.REACT_APP_URL}
-        </p>
-      </header>
+    <div>
+      <li>
+        <Link to="/todoLists">TodoLists</Link>
+      </li>
+
+      <li>
+        <Link to="/weatherApp">WeatherApp</Link>
+      </li>
     </div>
   );
 }
-
-export default App;
