@@ -3,8 +3,8 @@ import './index.css';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import TodoLists from './pages/todoLists';
-import WeatherApp from './pages/weatherApp';
+import TodoLists from './pages/todoLists.jsx';
+import WeatherApp from './pages/weatherApp.jsx';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
