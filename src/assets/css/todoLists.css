@@ -26,7 +26,7 @@
 }
 
 .page-wrapper .page-content-header #addBtn {
-  width: 10%;
+  width: 7%;
   height: 35px;
   border-radius: 3px;
   font-size: 20px;
@@ -85,7 +85,7 @@
 #dialogBox input {
   height: 45px;
   width: 430px;
-  margin: 40px 0px;
+  margin: 10px 0px;
   margin-top: 15px;
   font-size: 22px;
   padding: 0px 10px;
@@ -98,4 +98,45 @@
   width: 110px;
   background-color: #ffeff4;
   border-radius: 6px;
+}
+
+#filterDiv {
+  width: 80%;
+  text-align: center;
+}
+
+#filterDiv select {
+  width: 9%;
+  font-size: 18px;
+  height: 36px;
+  padding: 0px 7px;
+}
+
+#filterDiv input {
+  margin: 0px 50px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  width: 40%;
+  font-size: 20px;
+  padding: 5px 12px;
+}
+
+#filterDiv button {
+  width: 7%;
+  font-size: 18px;
+  height: 35px;
+  background-color: #b1e7ff;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.notCompleted {
+  text-decoration: none;
+}
+
+.error {
+  margin-bottom: 20px;
+  color: red;
 }
