@@ -21,21 +21,23 @@ export default function addtask(props) {
   }
   return (
     <>
-      <input
-        type="text"
-        id="toDoInput"
-        value={props.inputValue}
-        placeholder="Enter a Task"
-        onChange={(e) => {
-          props.setErrorMessage(null);
-          props.setFilterErrorMsg(null);
-          props.setInputValue(e.target.value);
-        }}
-      />
+      <div className="addTaskDiv">
+        <input
+          type="text"
+          id="toDoInput"
+          value={props.inputValue}
+          placeholder="Enter a Task"
+          onChange={(e) => {
+            props.setErrorMessage(null);
+            props.setFilterErrorMsg(null);
+            props.setInputValue(e.target.value);
+          }}
+        />
+        <button id="addBtn" onClick={addValue}>
+          Add
+        </button>
+      </div>
       <p className="error">{props.errorMessage}</p>
-      <button id="addBtn" onClick={addValue}>
-        Add
-      </button>
     </>
   );
 }
