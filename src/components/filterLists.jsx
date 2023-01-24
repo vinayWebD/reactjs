@@ -39,40 +39,42 @@ export default function filterLists(props) {
     }
   }
   return (
-    <div id="filterDiv">
-      <select
-        onChange={(e) => {
-          props.setErrorMessage(null);
-          props.setFilterErrorMsg(null);
-          setSearchValue((previousState) => {
-            return {
-              optionSelected: e.target.value,
-              value: previousState.value,
-            };
-          });
-        }}
-      >
-        <option value={'all'}>All</option>
-        <option value={'completed'}>Completed</option>
-        <option value={'pending'}>Pending</option>
-      </select>
-      <input
-        type="search"
-        placeholder="Search task"
-        value={searchValue.value}
-        onChange={(e) => {
-          props.setErrorMessage(null);
-          props.setFilterErrorMsg(null);
-          setSearchValue((previousState) => {
-            return {
-              optionSelected: previousState.optionSelected,
-              value: e.target.value,
-            };
-          });
-        }}
-      />
+    <>
+      <div id="filterDiv">
+        <select
+          onChange={(e) => {
+            props.setErrorMessage(null);
+            props.setFilterErrorMsg(null);
+            setSearchValue((previousState) => {
+              return {
+                optionSelected: e.target.value,
+                value: previousState.value,
+              };
+            });
+          }}
+        >
+          <option value={'all'}>All</option>
+          <option value={'completed'}>Completed</option>
+          <option value={'pending'}>Pending</option>
+        </select>
+        <input
+          type="search"
+          placeholder="Search task"
+          value={searchValue.value}
+          onChange={(e) => {
+            props.setErrorMessage(null);
+            props.setFilterErrorMsg(null);
+            setSearchValue((previousState) => {
+              return {
+                optionSelected: previousState.optionSelected,
+                value: e.target.value,
+              };
+            });
+          }}
+        />
+        <button onClick={() => searchTask()}>Filter</button>
+      </div>
       <p className="error">{props.filterErrorMsg}</p>
-      <button onClick={() => searchTask()}>Filter</button>
-    </div>
+    </>
   );
 }

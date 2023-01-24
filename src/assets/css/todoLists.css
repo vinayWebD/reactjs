@@ -27,8 +27,9 @@
 
 .page-wrapper .page-content-header #addBtn {
   width: 7%;
-  height: 35px;
+  height: 40px;
   border-radius: 3px;
+  margin-left: 40px;
   font-size: 20px;
   background-color: #a9e4ff;
 }
@@ -102,7 +103,10 @@
 
 #filterDiv {
   width: 80%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0px;
 }
 
 #filterDiv select {
@@ -114,8 +118,6 @@
 
 #filterDiv input {
   margin: 0px 50px;
-  margin-top: 25px;
-  margin-bottom: 10px;
   width: 40%;
   font-size: 20px;
   padding: 5px 12px;
@@ -139,4 +141,11 @@
 .error {
   margin-bottom: 20px;
   color: red;
+}
+
+.addTaskDiv {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
 }
