@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function filterLists(props) {
+export default function FilterLists(props) {
   const [searchValue, setSearchValue] = useState({
     optionSelected: 'all',
     value: '',

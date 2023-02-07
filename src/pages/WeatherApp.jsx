@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../assets/css/weatherApp.css';
 
-export default function weatherApp() {
+export default function WeatherApp() {
   const [weatherData, setWeatherData] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');

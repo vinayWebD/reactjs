@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function taskLists(props) {
+export default function TaskLists(props) {
   function editTask(obj) {
     props.setIdValue(obj);
     props.setModal(true);
@@ -13,14 +13,22 @@ export default function taskLists(props) {
     });
     props.setArray(newArray);
   }
-  function strikeOff(e, obj) {
-    if (obj.done == false) {
-      e.target.className = 'completed';
-      obj.done = true;
-    } else {
-      e.target.className = 'notCompleted';
-      obj.done = false;
-    }
+  function strikeOff(e, strikeObjectId) {
+    let stringifiedArray = JSON.stringify(props.taskArray);
+    let parsedArray = JSON.parse(stringifiedArray);
+    let newArr = parsedArray.map((obj) => {
+      if (strikeObjectId == obj.id) {
+        if (obj.done == false) {
+          e.target.className = 'completed';
+          obj.done = true;
+        } else {
+          e.target.className = 'notCompleted';
+          obj.done = false;
+        }
+      }
+      return obj;
+    });
+    props.setArray(newArr);
   }
 
   return (
@@ -30,7 +38,7 @@ export default function taskLists(props) {
           <div className="div1" key={key}>
             <p
               className={obj.done ? 'completed' : 'notCompleted'}
-              onClick={(e) => strikeOff(e, obj)}
+              onClick={(e) => strikeOff(e, obj.id)}
             >
               {obj.value}
             </p>

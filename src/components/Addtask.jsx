@@ -1,7 +1,8 @@
 import React from 'react';
 
-let nextId = 0;
-export default function addtask(props) {
+const date = new Date();
+let nextId = date.getTime();
+export default function Addtask(props) {
   function addValue() {
     if (!props.checkValue(props.inputValue)) {
       props.setDialogBoxError(null);

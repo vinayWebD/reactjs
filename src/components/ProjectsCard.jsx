@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function projectsCard(props) {
+export default function ProjectsCard(props) {
   return (
     <>
       <div className="col">

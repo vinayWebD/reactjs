@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function dialogBox(props) {
+export default function DialogBox(props) {
   function handleDialogBox(e) {
     if (e.target.id == 'dialogBoxWrapper') {
       props.cancelUpdate();

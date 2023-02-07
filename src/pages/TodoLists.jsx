@@ -1,13 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/todoLists.css';
-import Addtask from '../components/addtask.jsx';
-import DialogBox from '../components/dialogBox.jsx';
-import FilterLists from '../components/filterLists.jsx';
-import TaskLists from '../components/taskLists.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import Addtask from '../components/Addtask.jsx';
+import DialogBox from '../components/DialogBox.jsx';
+import FilterLists from '../components/FilterLists.jsx';
+import TaskLists from '../components/TaskLists.jsx';
+import { addTodolistData, userInfo, usersList } from '../slice';
 
 export default function TodoLists() {
+  const userState = useSelector(userInfo);
+  let usersListsArray = useSelector(usersList);
+
+  let firstArray;
+  function updateArray() {
+    let preArray = usersListsArray.filter((obj) => {
+      if (obj.userName == userState.userName) {
+        return true;
+      }
+      return false;
+    });
+    return preArray[0].todolistData;
+  }
+  updateArray();
+  firstArray = updateArray();
+
   const [inputValue, setInputValue] = useState('');
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useState(firstArray);
   const [taskArray, setTaskArray] = useState([]);
   const [modal, setModal] = useState(false);
   const [idValue, setIdValue] = useState(null);
@@ -15,9 +33,13 @@ export default function TodoLists() {
   const [filterErrorMsg, setFilterErrorMsg] = useState(null);
   const [dialogBoxError, setDialogBoxError] = useState(null);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     setTaskArray(array);
+    dispatch(addTodolistData(array));
   }, [array]);
+
   useEffect(() => {
     setFilterErrorMsg(null);
     setErrorMessage(null);
@@ -50,11 +72,15 @@ export default function TodoLists() {
   function updateValue() {
     if (!checkValue(idValue.value)) {
       setErrorMessage(null);
-      array.forEach((obj) => {
+      let stringifiedArray = JSON.stringify(array);
+      let parsedArray = JSON.parse(stringifiedArray);
+      let newarr = parsedArray.map((obj) => {
         if (obj.id == idValue.id) {
           obj.value = idValue.value;
         }
+        return obj;
       });
+      setArray(newarr);
       setModal(false);
       setIdValue(null);
     }
