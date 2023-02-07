@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function footer() {
+export default function Footer() {
   return (
     <>
       <div className="footer-header">
@@ -14,26 +14,26 @@ export default function footer() {
           <Link to="">
             <i className="fa-brands fa-twitter"></i>
           </Link>
-          <Link to="">
+          <a href="https://in.linkedin.com/">
             <i className="fa-brands fa-linkedin"></i>
-          </Link>
+          </a>
         </span>
       </div>
       <div className="footer-content">
         <ul>
-          <Link to="">
+          <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="">
+          <Link to="/">
             <li>About</li>
           </Link>
-          <Link to="#techStack">
+          <Link to="/">
             <li>Tech Stack</li>
           </Link>
-          <Link to="#projects">
+          <Link to="/">
             <li>Projects</li>
           </Link>
-          <Link to="#contact">
+          <Link to="/">
             <li>Contact</li>
           </Link>
         </ul>

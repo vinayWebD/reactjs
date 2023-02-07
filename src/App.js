@@ -9,9 +9,9 @@ import css from './assets/images/app/techStack/vscode-icons_file-type-css.svg';
 import html from './assets/images/app/techStack/vscode-icons_file-type-html.svg';
 import js from './assets/images/app/techStack/vscode-icons_file-type-js-official.svg';
 import vsCode from './assets/images/app/techStack/vscode-icons_file-type-vscode.svg';
-import Footer from './components/footer.jsx';
-import Header from './components/header.jsx';
-import ProjectsCard from './components/projectsCard.jsx';
+import Footer from './components/Footer.jsx';
+import Header from './components/Header.jsx';
+import ProjectsCard from './components/ProjectsCard.jsx';
 
 export default function App() {
   return (
@@ -81,12 +81,10 @@ export default function App() {
             />
 
             <ProjectsCard
-              image={
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNoDI4n6eBEwev1exL4_Rg06YKmtC_p1f8A&usqp=CAU'
-              }
-              heading={'Fetch Data Assignment'}
-              description={'In this the data is fetched from different APIs on request.'}
-              previewLink={'/'}
+              image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
+              heading={'Login/Register Page'}
+              description={'In this you can register and login to view dashboard'}
+              previewLink={'/login'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
