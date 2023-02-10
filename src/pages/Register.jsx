@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import '../assets/css/login.css';
+import '../assets/css/login.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { usersList, addUserData } from '../slice';
 
+const date = new Date();
+let nextId = date.getTime();
 export default function Register() {
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
@@ -43,28 +45,24 @@ export default function Register() {
     if (!errorFound) {
       let found = false;
       usersListsArray.forEach((obj) => {
-        if (obj.userName == registerUsername) {
-          found = true;
-          setUserNameErrorMessage('UserName Already exist!');
-        }
         if (obj.email == registerEmail) {
           found = true;
           setEmailErrorMessage('Email Already exist!');
         }
-        if (obj.password == registerPassword) {
-          found = true;
-          setPasswordErrorMessage('Password Already exist!');
-        }
       });
       if (!found) {
         let userDataObj = {
+          id: nextId++,
           userName: registerUsername,
           email: registerEmail,
           password: registerPassword,
           todolistData: [],
           status: 'approved',
+          type: 'user',
         };
-        dispatch(addUserData(userDataObj));
+        let parsedArray = JSON.parse(JSON.stringify(usersListsArray));
+        parsedArray.push(userDataObj);
+        dispatch(addUserData(parsedArray));
         navigate('/login');
         setRegisterUsername('');
         setRegisterEmail('');

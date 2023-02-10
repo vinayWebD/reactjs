@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { adminLogin } from '../services/authentication';
 import { updateUserInfo, usersList } from '../slice';
-import '../assets/css/login.css';
+import '../assets/css/login.scss';
 
 export default function Login() {
-  const [inputUserName, setInputUserName] = useState('');
+  const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
-  const [userNameErrorMessage, setUserNameErrorMessage] = useState('');
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -22,41 +21,33 @@ export default function Login() {
 
   function loginUser() {
     let errorFound = false;
-    if (inputUserName == '') {
+    if (inputEmail == '') {
       errorFound = true;
-      setUserNameErrorMessage('UserName is Required!');
+      setEmailErrorMessage('Email is Required!');
     }
     if (inputPassword == '') {
       errorFound = true;
       setPasswordErrorMessage('Password is Required!');
     }
-    if (adminLogin(inputUserName, inputPassword)) {
-      errorFound = true;
-      let obj = {
-        userName: 'admin',
-        password: 'admin123',
-      };
-      dispatch(updateUserInfo(obj));
-      navigate('/dashboard');
-    }
     if (!errorFound) {
-      let found = false;
-      if (usersListsArray.length == 0) {
-        return;
-      } else {
-        usersListsArray.forEach((obj) => {
-          if (
-            obj.userName == inputUserName &&
-            obj.password == inputPassword &&
-            obj.status == 'approved'
-          ) {
-            found = true;
-            dispatch(updateUserInfo(obj));
+      let data = usersListsArray.find(
+        (item) => item.email == inputEmail && item.password == inputPassword,
+      );
+
+      if (data && data.status === 'approved') {
+        switch (data.type) {
+          case 'admin':
+            dispatch(updateUserInfo(data));
+            navigate('/dashboard');
+            break;
+          default:
+            dispatch(updateUserInfo(data));
             navigate('/todolists');
-          }
-        });
-      }
-      if (!found) {
+            break;
+        }
+      } else if (data && data.status != 'approved') {
+        setErrorMessage('Your status is still not approved');
+      } else {
         setErrorMessage('Invalid login details');
       }
     }
@@ -67,21 +58,21 @@ export default function Login() {
       <section>
         <h1 className="loginFormHeading">Login</h1>
         <div className="login-form">
-          <h4 className="inputHeading">Username</h4>
+          <h4 className="inputHeading">Email</h4>
           <div className="username-input">
             <i className="fas fa-user loginIcon"></i>
             <input
               className="loginInput"
               type="text"
-              placeholder="Type your username"
-              value={inputUserName}
+              placeholder="Type your email"
+              value={inputEmail}
               onChange={(e) => {
                 setErrorMessage('');
-                setUserNameErrorMessage('');
-                setInputUserName(e.target.value);
+                setEmailErrorMessage('');
+                setInputEmail(e.target.value);
               }}
             />
-            <p className="error">{userNameErrorMessage}</p>
+            <p className="error">{emailErrorMessage}</p>
           </div>
           <h4 className="inputHeading">Password</h4>
           <div className="password-input">

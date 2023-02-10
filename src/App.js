@@ -1,5 +1,5 @@
 import React from 'react';
-import './assets/css/app.css';
+import './assets/css/app.scss';
 import github from './assets/images/app/techStack/akar-icons_github-fill.svg';
 import bootstrap from './assets/images/app/techStack/logos_bootstrap.svg';
 import git from './assets/images/app/techStack/logos_git-icon.svg';
@@ -96,7 +96,7 @@ export default function App() {
               description={
                 'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
               }
-              previewLink={'/'}
+              previewLink={'https://fir-project1-bc3fc.web.app/pages/components.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
@@ -106,7 +106,7 @@ export default function App() {
               }
               heading={'JS Practice'}
               description={'It is the template of the methods used while learning javascript.'}
-              previewLink={'/'}
+              previewLink={'https://fir-project1-bc3fc.web.app/pages/jsPractice.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
@@ -116,7 +116,7 @@ export default function App() {
               }
               heading={'CSS Practice'}
               description={'It is the template of the methods used while learning CSS.'}
-              previewLink={'/'}
+              previewLink={'https://fir-project1-bc3fc.web.app/pages/cssPractice.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
           </div>

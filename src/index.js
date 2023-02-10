@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
+import InfoUpdate from './pages/InfoUpdate.jsx';
 import Layout from './pages/Layout.jsx';
 import Login from './pages/Login.jsx';
 import { PrivateRoute } from './pages/PrivateRoute.jsx';
@@ -58,9 +59,21 @@ root.render(
         <Route
           path="/dashboard"
           element={
-            <PrivateRoute>
-              <UsersDashboard />
-            </PrivateRoute>
+            <Layout>
+              <PrivateRoute>
+                <UsersDashboard />
+              </PrivateRoute>
+            </Layout>
+          }
+        />
+        <Route
+          path="/infoUpdate/:id?"
+          element={
+            <Layout>
+              <PrivateRoute>
+                <InfoUpdate />
+              </PrivateRoute>
+            </Layout>
           }
         />
       </Routes>

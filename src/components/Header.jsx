@@ -1,19 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import navIcon from '../assets/images/app/navIcon.jpg';
+import { userInfo, updateUserInfo } from '../slice';
 
 export default function Header() {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  let loginUserInfo = useSelector(userInfo);
+
+  function logOutUser() {
+    dispatch(updateUserInfo(null));
+    navigate('/login');
+  }
   return (
     <div className="page-header-wrap">
       <div className="navbar-header">
-        <img src={navIcon} alt="" />
-        <img src="../" alt="" />
+        <Link to="/">
+          <img src={navIcon} alt="" />
+        </Link>
       </div>
       <div className="navbar-content">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
           <li>
             <Link to="/">About</Link>
           </li>
@@ -36,7 +44,15 @@ export default function Header() {
         <a href="https://in.linkedin.com/">
           <i className="fa-brands fa-linkedin"></i>
         </a>
-        <i className="fa-solid fa-circle-half-stroke"></i>
+        {loginUserInfo == null ? (
+          ''
+        ) : (
+          <i
+            className="fa-solid fa-right-from-bracket"
+            id="logoutIcon"
+            onClick={() => logOutUser()}
+          ></i>
+        )}
       </div>
     </div>
   );

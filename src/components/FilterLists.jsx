@@ -74,7 +74,7 @@ export default function FilterLists(props) {
         />
         <button onClick={() => searchTask()}>Filter</button>
       </div>
-      <p className="error">{props.filterErrorMsg}</p>
+      <p className="todoError">{props.filterErrorMsg}</p>
     </>
   );
 }
