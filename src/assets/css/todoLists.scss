@@ -4,16 +4,26 @@
   padding: 0px;
 }
 
+.page-wrapper {
+  background-color: #e0e4ff;
+  padding: 50px 0px;
+}
+
+.page-wrapper .heading {
+  text-align: center;
+  margin: 20px 0px;
+}
+
 .page-wrapper .page-content-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-}
-
-.page-wrapper .page-content-header .heading {
-  margin: 15px 0px;
+  padding: 10px 0px;
+  margin: auto;
+  background-color: #e2d3ff;
+  width: 60%;
+  box-shadow: 6px 6px lightgrey;
 }
 
 .page-wrapper .page-content-header #toDoInput {
@@ -25,13 +35,15 @@
 }
 
 .page-wrapper .page-content-header #addBtn {
-  width: 7%;
-  height: 40px;
-  border-radius: 3px;
+  width: 9%;
+  height: 35px;
   margin-left: 40px;
-  font-size: 20px;
-  /* background-color: #a9e4ff; */
-  background-color: #e9e9e9;
+  box-shadow: 1px 1px grey;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 3px;
+  border-color: #fff;
 }
 
 .page-wrapper .page-content-wrap {
@@ -39,6 +51,10 @@
   width: 100%;
   flex-direction: column;
   width: 60%;
+  margin: 50px auto;
+  background-color: white;
+  /* padding-bottom: 10px; */
+  box-shadow: 6px 6px lightgrey;
 }
 
 .page-wrapper .page-content-wrap div .div1 {
@@ -51,11 +67,15 @@
 
 .page-wrapper .page-content-wrap div .btnStyle {
   width: 60%;
-  border-radius: 4px;
+  border-radius: 3px;
   height: 33px;
-  /* background-color: #b3e7ff; */
-  background-color: #e9e9e9;
+  font-weight: 900;
+  color: white;
   font-size: 17px;
+  background-color: #b195e1;
+  box-shadow: 1px 2px lightgrey;
+  cursor: pointer;
+  border-color: #d9c3ff;
 }
 
 .page-wrapper .page-content-wrap div .div1 .inputEdit {
@@ -81,11 +101,11 @@
   top: 300px;
   border-radius: 20px;
   text-align: center;
+  background-color: #dcd2d2;
 }
 
 #dialogBox h2 {
   margin: 20px 0px;
-  color: white;
   font-size: 32px;
 }
 
@@ -103,17 +123,17 @@
   padding: 6px;
   margin: 0px 50px;
   width: 110px;
-  /* background-color: #ffeff4; */
   background-color: #e9e9e9;
   border-radius: 6px;
 }
 
 #filterDiv {
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 0px;
+  padding: 30px 0px 20px 0px;
+  background-color: #e1d0ff;
 }
 
 #filterDiv select {
@@ -131,11 +151,15 @@
 }
 
 #filterDiv button {
-  width: 7%;
+  width: 10%;
   font-size: 18px;
   height: 35px;
-  /* background-color: #b1e7ff; */
-  background-color: #e9e9e9;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px grey;
+  cursor: pointer;
+  border-color: #fff;
+
 }
 
 .completed {
@@ -146,9 +170,12 @@
   text-decoration: none;
 }
 
-.error {
-  margin-bottom: 20px;
+.todoError {
   color: red;
+  text-align: center;
+  background-color: #e1d1ff;
+  padding-top: 0px;
+  padding: 0px 0px 10px 0px;
 }
 
 .addTaskDiv {

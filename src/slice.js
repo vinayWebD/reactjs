@@ -3,12 +3,22 @@ import { createSlice } from '@reduxjs/toolkit';
 const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    usersList: [],
+    usersList: [
+      {
+        id: 1,
+        userName: 'admin',
+        email: 'admin@gmail.com',
+        password: 'admin123',
+        type: 'admin',
+        status: 'approved',
+      },
+    ],
     userInfo: null,
   },
   reducers: {
     addUserData: (state, action) => {
-      state.usersList.push(action.payload);
+      // state.usersList.push(action.payload);
+      state.usersList = action.payload;
     },
     updateUserInfo: (state, action) => {
       state.userInfo = action.payload;

@@ -38,7 +38,7 @@ export default function Addtask(props) {
           Add
         </button>
       </div>
-      <p className="error">{props.errorMessage}</p>
+      <p className="todoError">{props.errorMessage}</p>
     </>
   );
 }

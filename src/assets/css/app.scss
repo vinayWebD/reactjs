@@ -1,3 +1,21 @@
+.error {
+  margin-bottom: 20px;
+  color: red;
+}
+
+#logoutIcon:hover::after {
+  content: "logout";
+  position: absolute;
+  font-size: 14px;
+  padding: 6px;
+  margin: 0px 10px;
+  bottom: 37px;
+  background-color: #7c7c7c;
+  color: white;
+  border-radius: 4px;
+  font-family: sans-serif;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -13,8 +31,7 @@
   --buttonSuccess: #d7ffe0;
 }
 
-.page-data-wrap-seprator {
-}
+.page-data-wrap-seprator {}
 
 .page-data-wrap-seprator .page-header-wrap {
   display: flex;
@@ -62,6 +79,7 @@
 }
 
 .page-data-wrap-seprator .page-header-wrap .navbar-footer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,17 +172,13 @@
 }
 
 /*block-3*/
-.page-data-wrap-seprator .page-content-wrap .block-3-wrap {
-}
+.page-data-wrap-seprator .page-content-wrap .block-3-wrap {}
 
-.page-data-wrap-seprator .page-content-wrap .block-3-header {
-}
+.page-data-wrap-seprator .page-content-wrap .block-3-header {}
 
-.page-data-wrap-seprator .page-content-wrap .block-3-header h1 {
-}
+.page-data-wrap-seprator .page-content-wrap .block-3-header h1 {}
 
-.page-data-wrap-seprator .page-content-wrap .block-3-header p {
-}
+.page-data-wrap-seprator .page-content-wrap .block-3-header p {}
 
 .page-data-wrap-seprator .page-content-wrap .block-3-content {
   display: flex;

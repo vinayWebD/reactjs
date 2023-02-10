@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../assets/css/weatherApp.css';
+import '../assets/css/weatherApp.scss';
 
 export default function WeatherApp() {
   const [weatherData, setWeatherData] = useState('');

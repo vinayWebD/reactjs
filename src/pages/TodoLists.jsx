@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/css/todoLists.css';
+import '../assets/css/todoLists.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import Addtask from '../components/Addtask.jsx';
 import DialogBox from '../components/DialogBox.jsx';
@@ -91,8 +91,8 @@ export default function TodoLists() {
   }
   return (
     <div className="page-wrapper">
+      <h1 className="heading">Todo Lists</h1>
       <div className="page-content-header">
-        <h1 className="heading">To-Do Lists</h1>
         <Addtask
           inputValue={inputValue}
           setInputValue={setInputValue}
@@ -103,6 +103,8 @@ export default function TodoLists() {
           setDialogBoxError={setDialogBoxError}
           setFilterErrorMsg={setFilterErrorMsg}
         />
+      </div>
+      <div className="page-content-wrap" id="listBlockDiv">
         <FilterLists
           array={array}
           setTaskArray={setTaskArray}
@@ -110,8 +112,6 @@ export default function TodoLists() {
           filterErrorMsg={filterErrorMsg}
           setFilterErrorMsg={setFilterErrorMsg}
         />
-      </div>
-      <div className="page-content-wrap" id="listBlockDiv">
         <TaskLists
           taskArray={taskArray}
           setIdValue={setIdValue}
