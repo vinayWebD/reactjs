@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function TaskLists(props) {
   function editTask(obj) {
@@ -54,3 +55,11 @@ export default function TaskLists(props) {
     </div>
   );
 }
+
+TaskLists.propTypes = {
+  setIdValue: PropTypes.func,
+  setModal: PropTypes.func,
+  array: PropTypes.func,
+  taskArray: PropTypes.func,
+  setArray: PropTypes.func,
+};

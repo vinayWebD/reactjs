@@ -57,7 +57,7 @@
 .page-data-wrap-seprator .page-header-wrap .navbar-content {
   width: 80%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -333,7 +333,7 @@
     display: none;
     width: 80%;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
   }
 

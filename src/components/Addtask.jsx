@@ -1,24 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const date = new Date();
 let nextId = date.getTime();
-export default function Addtask(props) {
+function Addtask({
+  checkValue,
+  inputValue,
+  setDialogBoxError,
+  setArray,
+  setInputValue,
+  setErrorMessage,
+  setFilterErrorMsg,
+  errorMessage,
+}) {
   function addValue() {
-    if (!props.checkValue(props.inputValue)) {
-      props.setDialogBoxError(null);
-      props.setArray((previousState) => {
+    if (!checkValue(inputValue)) {
+      setDialogBoxError(null);
+      setArray((previousState) => {
         return [
           ...previousState,
           {
             id: nextId++,
-            value: props.inputValue,
+            value: inputValue,
             done: false,
           },
         ];
       });
-      props.setInputValue('');
+      setInputValue('');
     }
-    props.setDialogBoxError(null);
+    setDialogBoxError(null);
   }
   return (
     <>
@@ -26,19 +36,32 @@ export default function Addtask(props) {
         <input
           type="text"
           id="toDoInput"
-          value={props.inputValue}
+          value={inputValue}
           placeholder="Enter a Task"
           onChange={(e) => {
-            props.setErrorMessage(null);
-            props.setFilterErrorMsg(null);
-            props.setInputValue(e.target.value);
+            setErrorMessage(null);
+            setFilterErrorMsg(null);
+            setInputValue(e.target.value);
           }}
         />
         <button id="addBtn" onClick={addValue}>
           Add
         </button>
       </div>
-      <p className="todoError">{props.errorMessage}</p>
+      <p className="todoError">{errorMessage}</p>
     </>
   );
 }
+
+Addtask.propTypes = {
+  checkValue: PropTypes.func,
+  inputValue: PropTypes.func,
+  setDialogBoxError: PropTypes.func,
+  setArray: PropTypes.func,
+  setInputValue: PropTypes.func,
+  setErrorMessage: PropTypes.func,
+  setFilterErrorMsg: PropTypes.func,
+  errorMessage: PropTypes.func,
+};
+
+export default Addtask;
