@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function FilterLists(props) {
   const [searchValue, setSearchValue] = useState({
@@ -78,3 +79,11 @@ export default function FilterLists(props) {
     </>
   );
 }
+
+FilterLists.propTypes = {
+  array: PropTypes.func,
+  setTaskArray: PropTypes.func,
+  filterErrorMsg: PropTypes.func,
+  setFilterErrorMsg: PropTypes.func,
+  setErrorMessage: PropTypes.func,
+};

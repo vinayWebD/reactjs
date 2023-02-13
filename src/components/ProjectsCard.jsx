@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default function ProjectsCard(props) {
@@ -29,3 +30,11 @@ export default function ProjectsCard(props) {
     </>
   );
 }
+
+ProjectsCard.propTypes = {
+  image: PropTypes.func,
+  heading: PropTypes.func,
+  description: PropTypes.func,
+  previewLink: PropTypes.func,
+  codeLink: PropTypes.func,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function DialogBox(props) {
   function handleDialogBox(e) {
@@ -35,3 +36,12 @@ export default function DialogBox(props) {
     </>
   );
 }
+
+DialogBox.propTypes = {
+  cancelUpdate: PropTypes.func,
+  modal: PropTypes.func,
+  setIdValue: PropTypes.func,
+  idValue: PropTypes.func,
+  dialogBoxError: PropTypes.func,
+  updateValue: PropTypes.func,
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/css/app.scss';
+import PropTypes from 'prop-types';
 import Footer from '../components/Footer.jsx';
 import Header from '../components/Header.jsx';
 
@@ -14,3 +15,7 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.element,
+};
