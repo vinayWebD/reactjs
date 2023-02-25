@@ -21,7 +21,7 @@ export default function ProjectsCard(props) {
             <Link to={props.previewLink}>
               <i className="fa-solid fa-link"></i> Live Preview
             </Link>
-            <a href={props.codeLink}>
+            <a href={props.codeLink} target="_blank" rel="noreferrer">
               <i className="fa-brands fa-github"></i> View Code
             </a>
           </div>
@@ -32,9 +32,9 @@ export default function ProjectsCard(props) {
 }
 
 ProjectsCard.propTypes = {
-  image: PropTypes.func,
-  heading: PropTypes.func,
-  description: PropTypes.func,
-  previewLink: PropTypes.func,
-  codeLink: PropTypes.func,
+  image: PropTypes.string,
+  heading: PropTypes.string,
+  description: PropTypes.string,
+  previewLink: PropTypes.string,
+  codeLink: PropTypes.string,
 };

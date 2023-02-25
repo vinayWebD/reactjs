@@ -1,0 +1,23 @@
+.quizScorePageWrapper {
+    text-align: center;
+
+    padding-top: 120px;
+    margin: auto;
+    width: 50%;
+
+
+    .quizScoreHeading {
+        margin-bottom: 22px;
+    }
+
+    .scorePageHomeBtn {
+        padding: 5px 6px;
+        background-color: #fc4545;
+        color: white;
+        font-weight: 600;
+        margin: auto;
+        margin-top: 40px;
+        border: 2px solid #ff7f7f;
+        border-radius: 4px;
+    }
+}

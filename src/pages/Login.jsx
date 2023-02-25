@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { updateUserInfo, usersList } from '../slice';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { updateUserInfo } from '../store/reducers/authentication/authentication';
 import '../assets/css/login.scss';
 
 export default function Login() {
@@ -10,10 +16,18 @@ export default function Login() {
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
+  const params = useParams();
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const usersListsArray = useSelector(usersList);
+
+  const usersListsArray = useSelector((state) => state.authentication.usersList);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   useEffect(() => {
     dispatch(updateUserInfo(null));
@@ -40,10 +54,15 @@ export default function Login() {
             dispatch(updateUserInfo(data));
             navigate('/dashboard');
             break;
-          default:
+          default: {
             dispatch(updateUserInfo(data));
-            navigate('/todolists');
+            if (params.page == 'quiz') {
+              navigate('/quizDashboard');
+            } else {
+              navigate('/todolists');
+            }
             break;
+          }
         }
       } else if (data && data.status != 'approved') {
         setErrorMessage('Your status is still not approved');
@@ -77,9 +96,14 @@ export default function Login() {
           <h4 className="inputHeading">Password</h4>
           <div className="password-input">
             <i className="fas fa-lock loginIcon"></i>
-            <input
+            <Input
+              sx={{
+                my: 1,
+                py: 0,
+                fontSize: '18px',
+              }}
               className="loginInput"
-              type="text"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Type your password"
               value={inputPassword}
               onChange={(e) => {
@@ -87,6 +111,19 @@ export default function Login() {
                 setPasswordErrorMessage('');
                 setInputPassword(e.target.value);
               }}
+              id="standard-adornment-password"
+              name="password"
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
             />
             <p className="error">{passwordErrorMessage}</p>
           </div>
@@ -98,7 +135,7 @@ export default function Login() {
         <div className="alternative-signup">
           <p>
             Not a member?{' '}
-            <Link to="/register">
+            <Link to={`/register/${params.page}`}>
               <span className="loginSpan">Sign-up</span>
             </Link>
           </p>

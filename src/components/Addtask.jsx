@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const date = new Date();
-let nextId = date.getTime();
 function Addtask({
   checkValue,
   inputValue,
@@ -14,6 +12,8 @@ function Addtask({
   errorMessage,
 }) {
   function addValue() {
+    const date = new Date();
+    let nextId = date.getTime();
     if (!checkValue(inputValue)) {
       setDialogBoxError(null);
       setArray((previousState) => {
@@ -55,7 +55,7 @@ function Addtask({
 
 Addtask.propTypes = {
   checkValue: PropTypes.func,
-  inputValue: PropTypes.func,
+  inputValue: PropTypes.string,
   setDialogBoxError: PropTypes.func,
   setArray: PropTypes.func,
   setInputValue: PropTypes.func,

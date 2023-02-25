@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     <div className="page-data-wrap-seprator">
       <Header />
       <>{children}</>
-      <div className="page-footer-wrap" id="contact">
+      <div className="page-footer-wrap">
         <Footer />
       </div>
     </div>
