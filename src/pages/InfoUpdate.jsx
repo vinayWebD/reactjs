@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import '../assets/css/infoUpdate.scss';
+
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
 import MuiAlert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -16,19 +16,20 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
-import { usersList, userInfo, addUserData } from '../slice';
+import { addUserData } from '../store/reducers/authentication/authentication';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 export default function InfoUpdate() {
-  const loginUserInfo = useSelector(userInfo);
+  const loginUserInfo = useSelector((state) => state.authentication.userInfo);
+  const usersListsArray = useSelector((state) => state.authentication.usersList);
+
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
-  const usersListsArray = useSelector(usersList);
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -78,6 +79,7 @@ export default function InfoUpdate() {
           return obj;
         });
         dispatch(addUserData(updatedArray));
+        navigate('/dashboard');
       } else {
         let found = false;
         usersListsArray.forEach((obj) => {
@@ -95,7 +97,6 @@ export default function InfoUpdate() {
             email: values.email,
             password: values.password,
             type: values.type,
-            todolistData: [],
             status: values.status,
           };
           parsedArray.push(userDataObj);
@@ -187,19 +188,6 @@ export default function InfoUpdate() {
               </InputAdornment>
             }
           />
-          {/* <TextField
-            sx={{
-              my: 1,
-            }}
-            variant="standard"
-            name="password"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            placeholder="Enter your Password"
-            error={formik.touched.password && Boolean(formik.errors.password)}
-            fullWidth
-          /> */}
           {formik.touched.password && formik.errors.password ? (
             <div
               style={{

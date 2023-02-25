@@ -59,7 +59,7 @@ export default function TaskLists(props) {
 TaskLists.propTypes = {
   setIdValue: PropTypes.func,
   setModal: PropTypes.func,
-  array: PropTypes.func,
-  taskArray: PropTypes.func,
+  array: PropTypes.array,
+  taskArray: PropTypes.array,
   setArray: PropTypes.func,
 };

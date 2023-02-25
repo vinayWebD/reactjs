@@ -6,12 +6,13 @@
 }
 
 .loginPageWrap {
+  padding-top: 100px;
   /* font-size: 12px; */
   background-color: #fff9f9;
-  min-height: 700px;
+  min-height: 800px;
   min-width: 700px;
-  height: 100vh;
-  width: 100vw;
+  // height: 100vh;
+  // width: 100vw;
   background-color: hsla(0, 100%, 88%, 1);
   background-image: radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
     radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
@@ -73,7 +74,7 @@ section {
   padding-right: 7px;
 }
 
-.login-form > p {
+.login-form>p {
   width: 90%;
   font-size: 1.1rem;
   text-align: right;
@@ -87,11 +88,9 @@ section {
   width: 50%;
   border-radius: 10px;
   font-size: 1.2rem;
-  background-image: linear-gradient(
-    43deg,
-    hsla(340, 100%, 76%, 1) 0%,
-    hsla(269, 100%, 77%, 1) 100%
-  );
+  background-image: linear-gradient(43deg,
+      hsla(340, 100%, 76%, 1) 0%,
+      hsla(269, 100%, 77%, 1) 100%);
   color: white;
   font-weight: 600;
 }
@@ -104,7 +103,7 @@ section {
   align-items: center;
 }
 
-.alternative-signup > p {
+.alternative-signup>p {
   width: 90%;
   font-size: 1.1rem;
   text-align: center;

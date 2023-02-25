@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+
 import '../assets/css/login.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { usersList, addUserData } from '../slice';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { addUserData } from '../store/reducers/authentication/authentication';
 
 const date = new Date();
 let nextId = date.getTime();
@@ -14,9 +20,17 @@ export default function Register() {
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const params = useParams();
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const usersListsArray = useSelector(usersList);
+  const usersListsArray = useSelector((state) => state.authentication.usersList);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   function registerUser() {
     let errorFound = false;
@@ -56,14 +70,13 @@ export default function Register() {
           userName: registerUsername,
           email: registerEmail,
           password: registerPassword,
-          todolistData: [],
           status: 'approved',
           type: 'user',
         };
         let parsedArray = JSON.parse(JSON.stringify(usersListsArray));
         parsedArray.push(userDataObj);
         dispatch(addUserData(parsedArray));
-        navigate('/login');
+        navigate(`/login/${params.page}`);
         setRegisterUsername('');
         setRegisterEmail('');
         setRegisterPassword('');
@@ -109,16 +122,34 @@ export default function Register() {
           <h4 className="inputHeading">Password</h4>
           <div className="password-input">
             <i className="fas fa-lock loginIcon"></i>
-            <input
+            <Input
+              sx={{
+                py: 0,
+                fontSize: '18px',
+              }}
               className="loginInput"
-              type="text"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Type your password"
               value={registerPassword}
               onChange={(e) => {
                 setPasswordErrorMessage('');
                 setRegisterPassword(e.target.value);
               }}
+              id="standard-adornment-password"
+              name="password"
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
             />
+
             <p className="error">{passwordErrorMessage}</p>
           </div>
         </div>
@@ -133,7 +164,7 @@ export default function Register() {
         <div className="alternative-signup">
           <p>
             Already a member?{' '}
-            <Link to="/login">
+            <Link to={`/login/${params.page}`}>
               <span className="loginSpan">Sign-in</span>
             </Link>
           </p>

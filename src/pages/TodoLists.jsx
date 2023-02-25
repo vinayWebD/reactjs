@@ -5,27 +5,15 @@ import Addtask from '../components/Addtask.jsx';
 import DialogBox from '../components/DialogBox.jsx';
 import FilterLists from '../components/FilterLists.jsx';
 import TaskLists from '../components/TaskLists.jsx';
-import { addTodolistData, userInfo, usersList } from '../slice';
+import { addUsertodoListData } from '../store/reducers/todolists/todoLists';
 
 export default function TodoLists() {
-  const userState = useSelector(userInfo);
-  let usersListsArray = useSelector(usersList);
-
-  let firstArray;
-  function updateArray() {
-    let preArray = usersListsArray.filter((obj) => {
-      if (obj.userName == userState.userName) {
-        return true;
-      }
-      return false;
-    });
-    return preArray[0].todolistData;
-  }
-  updateArray();
-  firstArray = updateArray();
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.authentication.userInfo);
+  let userstodoData = useSelector((state) => state.todoLists.userstodoListData);
 
   const [inputValue, setInputValue] = useState('');
-  const [array, setArray] = useState(firstArray);
+  const [array, setArray] = useState([]);
   const [taskArray, setTaskArray] = useState([]);
   const [modal, setModal] = useState(false);
   const [idValue, setIdValue] = useState(null);
@@ -33,11 +21,28 @@ export default function TodoLists() {
   const [filterErrorMsg, setFilterErrorMsg] = useState(null);
   const [dialogBoxError, setDialogBoxError] = useState(null);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    let usertodoObj = userstodoData.find((obj) => obj.id == userState.id);
+    usertodoObj ? setArray(usertodoObj.todolistData) : setArray([]);
+  }, []);
 
   useEffect(() => {
     setTaskArray(array);
-    dispatch(addTodolistData(array));
+    let parsedUserTodoData = JSON.parse(JSON.stringify(userstodoData));
+    let found = false;
+    parsedUserTodoData.forEach((obj) => {
+      if (obj.id == userState.id) {
+        obj.todolistData = array;
+        found = true;
+      }
+    });
+    if (!found) {
+      parsedUserTodoData.push({
+        id: userState.id,
+        todolistData: array,
+      });
+    }
+    dispatch(addUsertodoListData(parsedUserTodoData));
   }, [array]);
 
   useEffect(() => {
@@ -45,6 +50,7 @@ export default function TodoLists() {
     setErrorMessage(null);
     setDialogBoxError(null);
   }, [modal]);
+
   function checkValue(value) {
     let present = false;
     if (value == '') {
@@ -104,7 +110,7 @@ export default function TodoLists() {
           setFilterErrorMsg={setFilterErrorMsg}
         />
       </div>
-      <div className="page-content-wrap" id="listBlockDiv">
+      <div className="todopage-content-wrap" id="listBlockDiv">
         <FilterLists
           array={array}
           setTaskArray={setTaskArray}

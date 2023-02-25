@@ -34,11 +34,16 @@
 .page-data-wrap-seprator {}
 
 .page-data-wrap-seprator .page-header-wrap {
+  position: fixed;
+  background-color: white;
   display: flex;
   justify-content: center;
   height: 100px;
-  width: 80%;
+  width: 100%;
+  padding: 0px 60px;
   margin: auto;
+  z-index: 2;
+  top: 0;
 }
 
 .page-data-wrap-seprator .page-header-wrap .navbar-header {
@@ -94,6 +99,7 @@
 .page-data-wrap-seprator .page-content-wrap {
   width: 80%;
   margin: auto;
+  padding-top: 100px;
 }
 
 .page-data-wrap-seprator .page-content-wrap .block-1-wrap {

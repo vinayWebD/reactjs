@@ -58,13 +58,33 @@ export default function App() {
           <div className="block-3-content">
             <ProjectsCard
               image={
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaMRIB9W1OZVIkFKFQveri1bC5p01NR7Y6qw&usqp=CAU'
+              }
+              heading={'Quiz App'}
+              description={
+                'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
+              }
+              previewLink={'/login/quiz'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+            />
+
+            <ProjectsCard
+              image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
+              heading={'Admin Login/Register Page'}
+              description={'In this you can register and login to view dashboard'}
+              previewLink={'/login'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+            />
+
+            <ProjectsCard
+              image={
                 'https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/0x0.jpg?format=jpg&width=360'
               }
               heading={'To-do Lists'}
               description={
                 'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
               }
-              previewLink={'/todoLists'}
+              previewLink={'/login/todoLists'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
@@ -81,10 +101,12 @@ export default function App() {
             />
 
             <ProjectsCard
-              image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
-              heading={'Login/Register Page'}
-              description={'In this you can register and login to view dashboard'}
-              previewLink={'/login'}
+              image={
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNoDI4n6eBEwev1exL4_Rg06YKmtC_p1f8A&usqp=CAU'
+              }
+              heading={'Fetch Data Assignment'}
+              description={'In this the data is fetched from different APIs on request.'}
+              previewLink={'https://fir-project1-bc3fc.web.app/pages/apiFetchTask.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
@@ -122,7 +144,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="page-footer-wrap" id="contact">
+      <div className="page-footer-wrap">
         <Footer />
       </div>
     </div>

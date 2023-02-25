@@ -16,3 +16,7 @@
 - `npm run start:production` for production
 
 - For more details read the accepted answer on this link: https://stackoverflow.com/questions/48524417/should-the-package-lock-json-file-be-added-to-gitignore
+
+#### debugger for eslint:
+
+    debugger; // eslint-disable-line no-debugger

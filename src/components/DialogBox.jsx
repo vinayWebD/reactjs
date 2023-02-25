@@ -39,9 +39,9 @@ export default function DialogBox(props) {
 
 DialogBox.propTypes = {
   cancelUpdate: PropTypes.func,
-  modal: PropTypes.func,
+  modal: PropTypes.bool,
   setIdValue: PropTypes.func,
-  idValue: PropTypes.func,
+  idValue: PropTypes.object,
   dialogBoxError: PropTypes.func,
   updateValue: PropTypes.func,
 };

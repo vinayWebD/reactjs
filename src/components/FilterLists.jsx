@@ -40,7 +40,7 @@ export default function FilterLists(props) {
     }
   }
   return (
-    <>
+    <div id="filterDivBgColor">
       <div id="filterDiv">
         <select
           onChange={(e) => {
@@ -76,12 +76,12 @@ export default function FilterLists(props) {
         <button onClick={() => searchTask()}>Filter</button>
       </div>
       <p className="todoError">{props.filterErrorMsg}</p>
-    </>
+    </div>
   );
 }
 
 FilterLists.propTypes = {
-  array: PropTypes.func,
+  array: PropTypes.array,
   setTaskArray: PropTypes.func,
   filterErrorMsg: PropTypes.func,
   setFilterErrorMsg: PropTypes.func,

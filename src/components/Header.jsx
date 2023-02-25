@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import navIcon from '../assets/images/app/navIcon.jpg';
-import { userInfo, updateUserInfo } from '../slice';
+import { updateUserInfo } from '../store/reducers/authentication/authentication';
 
 export default function Header() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  let loginUserInfo = useSelector(userInfo);
+  let loginUserInfo = useSelector((state) => state.authentication.userInfo);
 
   function logOutUser() {
     dispatch(updateUserInfo(null));
