@@ -6,6 +6,23 @@
     /* width: 50%; */
     background-color: #f0f0f0;
 
+    .quizDashboardPageBtnWrap {
+        width: 70%;
+        margin: 30px auto;
+        text-align: end;
+
+        .quizDashboardBtn {
+            background-color: #268a2a;
+            background: #046f04;
+            color: white;
+            padding: 9px 10px;
+            border: 2px solid #007a05;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+    }
+
     .quizProfileWrap {
         width: 70%;
         display: flex;
@@ -81,15 +98,6 @@
         padding: 20px;
         color: #fff;
         text-align: left;
-    }
-
-    .quizDashboardBtn {
-        background-color: #268a2a;
-        color: white;
-        padding: 10px 10px;
-        border: 2px solid #ffffff;
-        border-radius: 5px;
-        cursor: pointer;
     }
 
     .marginY {

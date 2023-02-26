@@ -57,21 +57,23 @@ export default function App() {
           </div>
           <div className="block-3-content">
             <ProjectsCard
-              image={
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaMRIB9W1OZVIkFKFQveri1bC5p01NR7Y6qw&usqp=CAU'
-              }
+              image={'https://apptraitsolutions.com/wp-content/uploads/2021/01/C88IZyEo7g-1.jpg'}
               heading={'Quiz App'}
               description={
-                'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
+                'It is a quiz application in which you can signUp and attempt any quiz and can check your score.'
               }
               previewLink={'/login/quiz'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
             <ProjectsCard
-              image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
-              heading={'Admin Login/Register Page'}
-              description={'In this you can register and login to view dashboard'}
+              image={
+                'https://www.shutterstock.com/image-photo/admin-text-word-written-neon-260nw-1906709194.jpg'
+              }
+              heading={'Admin Panel'}
+              description={
+                'In this you can login using admin credentials and can edit, delete , create a user'
+              }
               previewLink={'/login'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -80,11 +82,19 @@ export default function App() {
               image={
                 'https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/0x0.jpg?format=jpg&width=360'
               }
-              heading={'To-do Lists'}
+              heading={'To-do Lists App'}
               description={
                 'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
               }
               previewLink={'/login/todoLists'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+            />
+
+            <ProjectsCard
+              image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
+              heading={'Login/Register Page'}
+              description={'In this you can register and login to view dashboard'}
+              previewLink={'/login'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 

@@ -14,7 +14,7 @@ export default function ProjectsCard(props) {
             <h2>{props.heading}</h2>
             <p>{props.description}</p>
             <p>
-              <strong>Tech Stack : </strong>HTML, CSS Javascript
+              <strong>Tech Stack : </strong>Reactjs, Redux, Material ui
             </p>
           </div>
           <div className="card-footer">

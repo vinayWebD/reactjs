@@ -73,47 +73,47 @@ let questionArray = [
     userAnswer: '',
   },
   {
-    ques: 'What does html stands for?',
-    ans: 'D',
+    ques: 'What does SQL stands for?',
+    ans: 'B',
     options: [
       {
         optionId: 'A',
-        text: 'Counter Strike Source',
+        text: 'Structured Question Language',
       },
       {
         optionId: 'B',
-        text: 'Corrective style sheet',
+        text: 'Structured Query Language',
       },
       {
         optionId: 'C',
-        text: 'Computer Style Sheet',
+        text: 'Sequential Query Language',
       },
       {
         optionId: 'D',
-        text: 'Cascading Style Sheet',
+        text: 'Structured Queries Language',
       },
     ],
     userAnswer: '',
   },
   {
-    ques: 'What does html stands for?',
-    ans: 'D',
+    ques: 'What does php stands for?',
+    ans: 'A',
     options: [
       {
         optionId: 'A',
-        text: 'Counter Strike Source',
+        text: 'Hypertext Preprocessor',
       },
       {
         optionId: 'B',
-        text: 'Corrective style sheet',
+        text: 'Pre Hypertext processor',
       },
       {
         optionId: 'C',
-        text: 'Computer Style Sheet',
+        text: 'Pre Hyper processor',
       },
       {
         optionId: 'D',
-        text: 'Cascading Style Sheet',
+        text: 'Hypertext Preprocessor Language',
       },
     ],
     userAnswer: '',

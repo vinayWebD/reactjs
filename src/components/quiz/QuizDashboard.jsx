@@ -134,6 +134,11 @@ export default function QuizDashboard() {
 
   return (
     <div className="quizDashboardPageWrapper">
+      <div className="quizDashboardPageBtnWrap">
+        <button className="quizDashboardBtn" onClick={() => handleDashboardBtn()}>
+          Start Quiz
+        </button>
+      </div>
       <div className="quizProfileWrap">
         <h1 className="contentWrapHeader">Profile</h1>
         <div className="quizProfileWrapBox">
@@ -233,10 +238,6 @@ export default function QuizDashboard() {
           <Bar data={data} />
         </div>
       </div>
-
-      <button className="quizDashboardBtn" onClick={() => handleDashboardBtn()}>
-        Start Quiz
-      </button>
     </div>
   );
 }
