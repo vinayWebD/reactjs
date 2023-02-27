@@ -49,13 +49,15 @@ export default function Login() {
       );
 
       if (data && data.status === 'approved') {
+        dispatch(updateUserInfo(data));
         switch (data.type) {
+          case 'superAdmin':
+            navigate('/dashboard');
+            break;
           case 'admin':
-            dispatch(updateUserInfo(data));
             navigate('/dashboard');
             break;
           default: {
-            dispatch(updateUserInfo(data));
             if (params.page == 'quiz') {
               navigate('/quizDashboard');
             } else {

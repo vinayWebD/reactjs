@@ -30,40 +30,31 @@ export default function UsersDashboard() {
   });
 
   useEffect(() => {
-    if (loginUserInfo.type != 'admin') {
+    if (loginUserInfo.type == 'user') {
       navigate('/login');
     }
   }, []);
 
   useEffect(() => {
+    let userChartData = {
+      approved: 0,
+      pending: 0,
+      notApproved: 0,
+    };
     usersListsArray.forEach((obj) => {
       switch (obj.status) {
         case 'approved':
-          setChartData((prevState) => {
-            return {
-              ...prevState,
-              approved: prevState.approved + 1,
-            };
-          });
+          userChartData.approved = userChartData.approved + 1;
           break;
         case 'pending':
-          setChartData((prevState) => {
-            return {
-              ...prevState,
-              pending: prevState.pending + 1,
-            };
-          });
+          userChartData.pending = userChartData.pending + 1;
           break;
         case 'not approved':
-          setChartData((prevState) => {
-            return {
-              ...prevState,
-              notApproved: prevState.notApproved + 1,
-            };
-          });
+          userChartData.notApproved = userChartData.notApproved + 1;
           break;
       }
     });
+    setChartData(userChartData);
   }, [usersListsArray]);
 
   const handleClickOpen = () => {
@@ -96,7 +87,7 @@ export default function UsersDashboard() {
     labels: ['Approved', 'Pending', 'Not Approved'],
     datasets: [
       {
-        label: '# of Votes',
+        label: 'status',
         data: [chartData.approved, chartData.pending, chartData.notApproved],
         backgroundColor: [
           'rgba(255, 99, 132, 0.7)',
@@ -145,34 +136,40 @@ export default function UsersDashboard() {
         </thead>
         <tbody>
           {usersListsArray.map((obj, key) => {
-            return (
-              <tr key={key} className="bodyRow">
-                <td>{obj.userName}</td>
-                <td>{obj.email}</td>
-                <td>{obj.password}</td>
-                <td>{obj.status}</td>
-                <td>{obj.type}</td>
-                <td>
-                  <button
-                    className="dashboardEditBtn"
-                    value={obj.id}
-                    onClick={(e) => editUserInfo(e.target.value)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="dashboardEditBtn"
-                    value={obj.id}
-                    onClick={(e) => {
-                      handleClickOpen();
-                      setDeleteId(e.target.value);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
+            if (obj.type != 'superAdmin')
+              return (
+                <tr key={key} className="bodyRow">
+                  <td>{obj.userName}</td>
+                  <td>{obj.email}</td>
+                  <td>{obj.password}</td>
+                  <td>{obj.status}</td>
+                  <td>{obj.type}</td>
+                  <td>
+                    <button
+                      className="dashboardEditBtn"
+                      value={obj.id}
+                      onClick={(e) => editUserInfo(e.target.value)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      disabled={loginUserInfo.type == 'admin' && obj.type == 'admin'}
+                      className={
+                        loginUserInfo.type == 'admin' && obj.type == 'admin'
+                          ? 'btnDisplayDisable'
+                          : 'dashboardEditBtn'
+                      }
+                      value={obj.id}
+                      onClick={(e) => {
+                        handleClickOpen();
+                        setDeleteId(e.target.value);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
           })}
         </tbody>
       </table>

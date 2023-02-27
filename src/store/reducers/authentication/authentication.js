@@ -6,10 +6,26 @@ const authenticationSlice = createSlice({
     usersList: [
       {
         id: 1,
+        userName: 'superAdmin',
+        email: 'superAdmin@yopmail.com',
+        password: 'superadmin#123',
+        type: 'superAdmin',
+        status: 'approved',
+      },
+      {
+        id: 2,
         userName: 'admin',
-        email: 'admin@gmail.com',
-        password: 'admin123',
+        email: 'admin@yopmail.com',
+        password: 'admin#123',
         type: 'admin',
+        status: 'approved',
+      },
+      {
+        id: 3,
+        userName: 'testUser',
+        email: 'testUser@yopmail.com',
+        password: 'test#123',
+        type: 'user',
         status: 'approved',
       },
     ],

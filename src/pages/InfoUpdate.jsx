@@ -44,7 +44,7 @@ export default function InfoUpdate() {
   };
 
   useEffect(() => {
-    if (loginUserInfo.type != 'admin') {
+    if (loginUserInfo.type == 'user') {
       navigate('/login');
     }
     let data = usersListsArray.find((obj) => obj.id == params.id);
@@ -75,6 +75,7 @@ export default function InfoUpdate() {
             obj.userName = values.userName;
             obj.password = values.password;
             obj.status = values.status;
+            obj.type = values.type;
           }
           return obj;
         });
@@ -172,6 +173,7 @@ export default function InfoUpdate() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             name="password"
+            autoComplete="on"
             value={formik.values.password}
             placeholder="Enter your Password"
             error={formik.touched.password && Boolean(formik.errors.password)}
@@ -242,7 +244,8 @@ export default function InfoUpdate() {
             }}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            name="status"
+            name="type"
+            disabled={loginUserInfo.type == 'admin'}
             onChange={formik.handleChange}
             value={formik.values.type}
             label="Type"

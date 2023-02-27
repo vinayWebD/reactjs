@@ -57,13 +57,24 @@
   }
 
   .dashboardChart {
-    width: 50%;
+    width: 40%;
     margin: 80px auto;
     padding: 80px;
     background-color: white;
   }
 }
 
+
+.btnDisplayDisable {
+  padding: 3px 15px;
+  font-size: 16px;
+  margin: auto 13px;
+  /* background: #357bfd; */
+  /* border-color: #80adff; */
+  /* color: white; */
+  /* border-radius: 3px; */
+  cursor: pointer;
+}
 
 .userInfoDiv {
   display: flex;

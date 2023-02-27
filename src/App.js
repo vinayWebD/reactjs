@@ -62,6 +62,7 @@ export default function App() {
               description={
                 'It is a quiz application in which you can signUp and attempt any quiz and can check your score.'
               }
+              techStack={'HTML, CSS, JavaScript, Reactjs, Redux, Material ui, Chartjs'}
               previewLink={'/login/quiz'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -74,18 +75,20 @@ export default function App() {
               description={
                 'In this you can login using admin credentials and can edit, delete , create a user'
               }
+              techStack={'HTML, CSS, JavaScript, Reactjs, Redux, Material ui, Formik, Chartjs'}
               previewLink={'/login'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
             <ProjectsCard
               image={
-                'https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/0x0.jpg?format=jpg&width=360'
+                'https://t3.ftcdn.net/jpg/02/59/31/70/360_F_259317013_nJJaBgGGzvXMd6cAyLd6yMJtbdnd61wk.jpg'
               }
               heading={'To-do Lists App'}
               description={
                 'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
               }
+              techStack={'HTML, CSS, JavaScript, Reactjs, Redux'}
               previewLink={'/login/todoLists'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -94,6 +97,7 @@ export default function App() {
               image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
               heading={'Login/Register Page'}
               description={'In this you can register and login to view dashboard'}
+              techStack={'HTML, CSS, JavaScript, Reactjs, Redux, Material ui'}
               previewLink={'/login'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -106,7 +110,20 @@ export default function App() {
               description={
                 'It is an application in which you can search the temperature of any city.'
               }
+              techStack={'HTML, CSS, JavaScript, Axios'}
               previewLink={'/weatherApp'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+            />
+            <ProjectsCard
+              image={
+                'https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/0x0.jpg?format=jpg&width=360'
+              }
+              heading={'TodoLists App'}
+              description={
+                'It is a simple To-do web application in which data is managed in localStorage.'
+              }
+              techStack={'HTML, CSS, JavaScript'}
+              previewLink={'https://fir-project1-bc3fc.web.app/pages/todoLists.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
@@ -116,6 +133,7 @@ export default function App() {
               }
               heading={'Fetch Data Assignment'}
               description={'In this the data is fetched from different APIs on request.'}
+              techStack={'HTML, CSS, JavaScript, Axios'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/apiFetchTask.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -128,6 +146,7 @@ export default function App() {
               description={
                 'It is a advance To-do web application in which you can edit, delete and strike your tasks.'
               }
+              techStack={'HTML, CSS, JavaScript'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/components.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -138,6 +157,7 @@ export default function App() {
               }
               heading={'JS Practice'}
               description={'It is the template of the methods used while learning javascript.'}
+              techStack={'HTML, CSS, JavaScript'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/jsPractice.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
@@ -148,6 +168,7 @@ export default function App() {
               }
               heading={'CSS Practice'}
               description={'It is the template of the methods used while learning CSS.'}
+              techStack={'HTML, CSS'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/cssPractice.html'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />

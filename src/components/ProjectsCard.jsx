@@ -14,7 +14,8 @@ export default function ProjectsCard(props) {
             <h2>{props.heading}</h2>
             <p>{props.description}</p>
             <p>
-              <strong>Tech Stack : </strong>Reactjs, Redux, Material ui
+              <strong>Tech Stack : </strong>
+              {props.techStack}
             </p>
           </div>
           <div className="card-footer">
@@ -37,4 +38,5 @@ ProjectsCard.propTypes = {
   description: PropTypes.string,
   previewLink: PropTypes.string,
   codeLink: PropTypes.string,
+  techStack: PropTypes.string,
 };
