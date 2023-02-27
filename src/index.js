@@ -7,6 +7,7 @@ import App from './App';
 import QuizCategory from './components/quiz/QuizCategory.jsx';
 import QuizDashboard from './components/quiz/QuizDashboard.jsx';
 import QuizLevel from './components/quiz/QuizLevel.jsx';
+import ApiFetchTask from './pages/ApiFetchTask.jsx';
 import InfoUpdate from './pages/InfoUpdate.jsx';
 import Layout from './pages/Layout.jsx';
 import Login from './pages/Login.jsx';
@@ -31,6 +32,14 @@ root.render(
           element={
             <Layout>
               <WeatherApp />
+            </Layout>
+          }
+        />
+        <Route
+          path="/apiFetchData"
+          element={
+            <Layout>
+              <ApiFetchTask />
             </Layout>
           }
         />

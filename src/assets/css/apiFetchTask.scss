@@ -1,0 +1,58 @@
+.section-wrapper {
+    background: #e6f7ff;
+    padding: 12px 0px;
+}
+
+.searchDiv {
+    display: flex;
+    justify-content: center;
+    margin: 85px 0px;
+    margin-top: 150px;
+}
+
+#searchInput {
+    width: 30%;
+    height: 30px;
+    font-size: 18px;
+    padding: 0px 10px;
+    margin: 0px 20px;
+}
+
+#searchbtn {
+    width: 110px;
+    font-size: 14px;
+}
+
+.apiList {
+    display: flex;
+    justify-content: center;
+}
+
+.apiList button {
+    width: 120px;
+    height: 30px;
+    margin: 0px 15px;
+}
+
+#mainDiv {
+    margin: 70px auto;
+    width: 90%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+// td,
+// th {
+//     border: 1px solid black;
+//     padding: 13px;
+// }
+
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}

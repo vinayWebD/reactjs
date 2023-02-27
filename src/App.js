@@ -134,7 +134,7 @@ export default function App() {
               heading={'Fetch Data Assignment'}
               description={'In this the data is fetched from different APIs on request.'}
               techStack={'HTML, CSS, JavaScript, Axios'}
-              previewLink={'https://fir-project1-bc3fc.web.app/pages/apiFetchTask.html'}
+              previewLink={'/apiFetchData'}
               codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
             />
 
