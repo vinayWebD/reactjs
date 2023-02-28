@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,15 +7,34 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import TextField from '@mui/material/TextField';
 
-import '../../src/assets/css/apiFetchTask.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getReducerState } from '../store/reducers/selector';
+import { fetchPosts } from '../store/thunk/apiFetch';
 
-export default function ApiFetchTask() {
+import '../assets/css/apiFetchTask2.scss';
+
+export default function ApiFetchTask2() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [tableRowData, setTableRowData] = useState('');
   const [tableColumnData, setTableColumnData] = useState([]);
+
+  const dispatch = useDispatch();
+
+  let fetchedData = useSelector(getReducerState('apiFetch'));
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+
+  useEffect(() => {
+    if (fetchedData.status == 'succeeded') {
+      setTableRowData(fetchedData.posts);
+    }
+  }, [fetchedData]);
 
   useEffect(() => {
     if (tableRowData) {
@@ -41,43 +61,22 @@ export default function ApiFetchTask() {
     setPage(0);
   };
 
-  async function fetchData(value) {
-    let fetchedData = await fetch(`https://jsonplaceholder.typicode.com/${value}`)
-      .then((response) => response.json())
-      .then((json) => {
-        return json;
-      });
-    setTableRowData(fetchedData);
-  }
-
-  // function searchData() {
-  //   let tempArr = fetchedDataArr.filter((obj) => {
-  //     if (obj[`${thirdKey}`].includes(searchInput.value)) {
-  //       return obj;
-  //     }
-  //   });
-  //   if (tempArr.length == 0) {
-  //     tContent.innerHTML = '<h3>No match Found</h3>';
-  //   } else {
-  //     createTable(tempArr);
-  //   }
-  //   searchInput.value = '';
-  // }
-
   return (
-    <div className="section-wrapper">
+    <div className="fetchTask2Wrapper">
       <div className="searchDiv">
-        <input type="search" id="searchInput" placeholder="Search Title" />
-        <button id="searchbtn" onclick="searchData()">
-          FILTER
-        </button>
+        <TextField
+          sx={{
+            width: 500,
+            mx: 2,
+            background: 'white',
+            padding: 0,
+            lineHeight: 0,
+          }}
+          label="Search Title"
+        />
+        <Button variant="contained">Filter</Button>
       </div>
-      <div className="apiList">
-        <button onClick={() => fetchData('posts')}>Posts</button>
-        <button onClick={() => fetchData('comments')}>Comments</button>
-        <button onClick={() => fetchData('todos')}>Todos</button>
-      </div>
-      <div id="mainDiv">
+      <div className="fetchTask2TableWrapper">
         <TableContainer
           sx={{
             maxHeight: 440,

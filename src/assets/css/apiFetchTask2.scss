@@ -1,0 +1,23 @@
+.fetchTask2Wrapper {
+    background: #e6f7ff;
+    margin: 80px 0px;
+    padding: 80px 0px;
+
+    .searchDiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .fetchTask2TableWrapper {
+        width: 80%;
+        margin: 80px auto;
+    }
+}
+
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}

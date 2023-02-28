@@ -38,12 +38,12 @@
   background-color: white;
   display: flex;
   justify-content: center;
-  height: 100px;
   width: 100%;
   padding: 0px 60px;
   margin: auto;
   z-index: 10;
   top: 0;
+  max-height: 80px;
 }
 
 .page-data-wrap-seprator .page-header-wrap .navbar-header {
