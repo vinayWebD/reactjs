@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchPosts = createAsyncThunk('apiFetch/posts', async () => {
-  let response = await axios.get('https://dummyjson.com/posts');
-  return response.data.posts;
+export const fetchPosts = createAsyncThunk('apiFetch/users', async () => {
+  let response = await axios.get('https://dummyjson.com/users');
+  return response.data.users;
 });

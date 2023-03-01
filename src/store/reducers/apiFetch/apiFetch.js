@@ -4,7 +4,7 @@ import { fetchPosts } from '../../thunk/apiFetch';
 const apiFetchSlice = createSlice({
   name: 'apiFetch',
   initialState: {
-    posts: [],
+    users: [],
     status: 'idle',
     error: null,
   },
@@ -14,7 +14,7 @@ const apiFetchSlice = createSlice({
     },
     [fetchPosts.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.posts = action.payload;
+      state.users = action.payload;
     },
     [fetchPosts.rejected]: (state, action) => {
       state.status = 'failed';
