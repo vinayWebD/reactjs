@@ -71,6 +71,13 @@ export default function ApiFetchTask2() {
             background: 'white',
             padding: 0,
             lineHeight: 0,
+            '& .MuiInputLabel-root': {
+              lineHeight: '0.8em',
+              overflow: 'visible',
+            },
+            '& .MuiOutlinedInput-input': {
+              padding: '9.5px 14px',
+            },
           }}
           label="Search Title"
         />

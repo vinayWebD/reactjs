@@ -64,7 +64,7 @@ export default function App() {
               }
               techStack={'HTML, CSS, JavaScript, Reactjs, Redux, Material ui, Chartjs'}
               previewLink={'/login/quiz'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -77,7 +77,7 @@ export default function App() {
               }
               techStack={'HTML, CSS, JavaScript, Reactjs, Redux, Material ui, Formik, Chartjs'}
               previewLink={'/login'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -90,7 +90,7 @@ export default function App() {
               }
               techStack={'HTML, CSS, JavaScript, Reactjs, Redux'}
               previewLink={'/login/todoLists'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -99,7 +99,16 @@ export default function App() {
               description={'In this you can register and login to view dashboard'}
               techStack={'HTML, CSS, JavaScript, Reactjs, Redux, Material ui'}
               previewLink={'/login'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
+            />
+
+            <ProjectsCard
+              image={'https://i.morioh.com/74428a9fdb.png'}
+              heading={'Fetch Data Assignment'}
+              description={'In this the data is fetched from different APIs on request.'}
+              techStack={'React, MaterialUI, Thunk-Redux, Axios'}
+              previewLink={'/apiFetchData'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -112,30 +121,20 @@ export default function App() {
               }
               techStack={'HTML, CSS, JavaScript, Axios'}
               previewLink={'/weatherApp'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
+
             <ProjectsCard
               image={
                 'https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/0x0.jpg?format=jpg&width=360'
               }
               heading={'TodoLists App'}
               description={
-                'It is a simple To-do web application in which data is managed in localStorage.'
+                'It is a normal To-do web application in which data is managed in localStorage.'
               }
               techStack={'HTML, CSS, JavaScript'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/todoLists.html'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
-            />
-
-            <ProjectsCard
-              image={
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNoDI4n6eBEwev1exL4_Rg06YKmtC_p1f8A&usqp=CAU'
-              }
-              heading={'Fetch Data Assignment'}
-              description={'In this the data is fetched from different APIs on request.'}
-              techStack={'HTML, CSS, JavaScript, Axios'}
-              previewLink={'/apiFetchData'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -148,7 +147,18 @@ export default function App() {
               }
               techStack={'HTML, CSS, JavaScript'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/components.html'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
+            />
+
+            <ProjectsCard
+              image={
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNoDI4n6eBEwev1exL4_Rg06YKmtC_p1f8A&usqp=CAU'
+              }
+              heading={'Fetch Data Assignment'}
+              description={'In this the data is fetched from different APIs on request.'}
+              techStack={'React, MaterialUI, Thunk-Redux, Axios'}
+              previewLink={'https://fir-project1-bc3fc.web.app/pages/apiFetchTask.html'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -159,7 +169,7 @@ export default function App() {
               description={'It is the template of the methods used while learning javascript.'}
               techStack={'HTML, CSS, JavaScript'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/jsPractice.html'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
 
             <ProjectsCard
@@ -170,7 +180,7 @@ export default function App() {
               description={'It is the template of the methods used while learning CSS.'}
               techStack={'HTML, CSS'}
               previewLink={'https://fir-project1-bc3fc.web.app/pages/cssPractice.html'}
-              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/main/'}
+              codeLink={'https://bitbucket.org/_vinaychoudhary/reactjspractice/src/dev/'}
             />
           </div>
         </div>
