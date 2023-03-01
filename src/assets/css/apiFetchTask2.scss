@@ -12,12 +12,12 @@
         width: 80%;
         margin: 80px auto;
     }
-}
 
-tr:nth-child(even) {
-    background-color: #ffffff;
-}
+    tr:nth-child(even) {
+        background-color: #ffffff;
+    }
 
-tr:nth-child(odd) {
-    background-color: #dddddd;
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
 }
