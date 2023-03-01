@@ -39,7 +39,6 @@ export default function ApiFetchTask2() {
   useEffect(() => {
     if (tableRowData) {
       let coloumnKeys = Object.keys(tableRowData[0]);
-      console.log(coloumnKeys);
       let coloumnDataArr = [];
       coloumnKeys.forEach((str) => {
         let coloumnObj = {
