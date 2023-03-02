@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/css/quizHome.scss';
-import QuizScore from '../components/quiz/QuizScore.jsx';
+import '../../assets/css/quizHome.scss';
+import QuizScore from './QuizScore.jsx';
 
 let questionArray = [
   {

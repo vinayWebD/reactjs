@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <>
-      <div className="footer-header">
+      <div className="footer-header" id="contact">
         <span>+91 8209308885</span>
         <span>vinay071001@gmail.com</span>
         <span>

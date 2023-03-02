@@ -1,85 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 
-import '../assets/css/login.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { addUserData } from '../store/reducers/authentication/authentication';
+import { updateUserInfo } from '../../store/reducers/authentication/authentication';
+import '../../assets/css/login.scss';
 
-const date = new Date();
-let nextId = date.getTime();
-export default function Register() {
-  const [registerUsername, setRegisterUsername] = useState('');
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
-  const [userNameErrorMessage, setUserNameErrorMessage] = useState('');
+export default function Login() {
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputPassword, setInputPassword] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
-
+  const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const params = useParams();
   const dispatch = useDispatch();
   let navigate = useNavigate();
+
   const usersListsArray = useSelector((state) => state.authentication.usersList);
+  const userInfo = useSelector((state) => state.authentication.userInfo);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
-  function registerUser() {
+  useEffect(() => {
+    if (userInfo) {
+      switch (userInfo.type) {
+        case 'superAdmin':
+          navigate('/dashboard');
+          break;
+        case 'admin':
+          navigate('/dashboard');
+          break;
+        default: {
+          if (params.page == 'quiz') {
+            navigate('/quizDashboard');
+          } else {
+            navigate('/todolists');
+          }
+          break;
+        }
+      }
+    }
+    // dispatch(updateUserInfo(null));
+  });
+
+  function loginUser() {
     let errorFound = false;
-    if (registerUsername == '') {
-      errorFound = true;
-      setUserNameErrorMessage('UserName is Required!');
-    }
-    let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!registerEmail.match(mailFormat)) {
-      errorFound = true;
-      setEmailErrorMessage('Email is Invalid!');
-    }
-    if (registerEmail == '') {
+    if (inputEmail == '') {
       errorFound = true;
       setEmailErrorMessage('Email is Required!');
     }
-    var passwordFormat = /^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-    if (!registerPassword.match(passwordFormat)) {
-      errorFound = true;
-      setPasswordErrorMessage('Password is Invalid!');
-    }
-    if (registerPassword == '') {
+    if (inputPassword == '') {
       errorFound = true;
       setPasswordErrorMessage('Password is Required!');
     }
     if (!errorFound) {
-      let found = false;
-      usersListsArray.forEach((obj) => {
-        if (obj.email == registerEmail) {
-          found = true;
-          setEmailErrorMessage('Email Already exist!');
+      let data = usersListsArray.find(
+        (item) => item.email == inputEmail && item.password == inputPassword,
+      );
+
+      if (data && data.status === 'approved') {
+        dispatch(updateUserInfo(data));
+        switch (data.type) {
+          case 'superAdmin':
+            navigate('/dashboard');
+            break;
+          case 'admin':
+            navigate('/dashboard');
+            break;
+          default: {
+            if (params.page == 'quiz') {
+              navigate('/quizDashboard');
+            } else {
+              navigate('/todolists');
+            }
+            break;
+          }
         }
-      });
-      if (!found) {
-        let userDataObj = {
-          id: nextId++,
-          userName: registerUsername,
-          email: registerEmail,
-          password: registerPassword,
-          status: 'approved',
-          type: 'user',
-        };
-        let parsedArray = JSON.parse(JSON.stringify(usersListsArray));
-        parsedArray.push(userDataObj);
-        dispatch(addUserData(parsedArray));
-        navigate(`/login/${params.page}`);
-        setRegisterUsername('');
-        setRegisterEmail('');
-        setRegisterPassword('');
+      } else if (data && data.status != 'approved') {
+        setErrorMessage('Your status is still not approved');
+      } else {
+        setErrorMessage('Invalid login details');
       }
     }
   }
@@ -87,23 +96,8 @@ export default function Register() {
   return (
     <div className="loginPageWrap">
       <section>
-        <h1 className="loginFormHeading">Register</h1>
+        <h1 className="loginFormHeading">Login</h1>
         <div className="login-form">
-          <h4 className="inputHeading">Username</h4>
-          <div className="username-input">
-            <i className="fas fa-user loginIcon"></i>
-            <input
-              className="loginInput"
-              type="text"
-              placeholder="Type your username"
-              value={registerUsername}
-              onChange={(e) => {
-                setUserNameErrorMessage('');
-                setRegisterUsername(e.target.value);
-              }}
-            />
-            <p className="error">{userNameErrorMessage}</p>
-          </div>
           <h4 className="inputHeading">Email</h4>
           <div className="username-input">
             <i className="fas fa-user loginIcon"></i>
@@ -111,10 +105,11 @@ export default function Register() {
               className="loginInput"
               type="text"
               placeholder="Type your email"
-              value={registerEmail}
+              value={inputEmail}
               onChange={(e) => {
+                setErrorMessage('');
                 setEmailErrorMessage('');
-                setRegisterEmail(e.target.value);
+                setInputEmail(e.target.value);
               }}
             />
             <p className="error">{emailErrorMessage}</p>
@@ -124,16 +119,18 @@ export default function Register() {
             <i className="fas fa-lock loginIcon"></i>
             <Input
               sx={{
+                my: 1,
                 py: 0,
                 fontSize: '18px',
               }}
               className="loginInput"
               type={showPassword ? 'text' : 'password'}
               placeholder="Type your password"
-              value={registerPassword}
+              value={inputPassword}
               onChange={(e) => {
+                setErrorMessage('');
                 setPasswordErrorMessage('');
-                setRegisterPassword(e.target.value);
+                setInputPassword(e.target.value);
               }}
               id="standard-adornment-password"
               name="password"
@@ -149,23 +146,18 @@ export default function Register() {
                 </InputAdornment>
               }
             />
-
             <p className="error">{passwordErrorMessage}</p>
           </div>
         </div>
-        <button
-          className="login-btn"
-          onClick={() => {
-            registerUser();
-          }}
-        >
-          Sign Up
+        <button className="login-btn" onClick={() => loginUser()}>
+          LOGIN
         </button>
+        <p className="error">{errorMessage}</p>
         <div className="alternative-signup">
           <p>
-            Already a member?{' '}
-            <Link to={`/login/${params.page}`}>
-              <span className="loginSpan">Sign-in</span>
+            Not a member?{' '}
+            <Link to={`/register/${params.page}`}>
+              <span className="loginSpan">Sign-up</span>
             </Link>
           </p>
         </div>

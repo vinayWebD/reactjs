@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/todoLists.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import Addtask from '../components/Addtask.jsx';
-import DialogBox from '../components/DialogBox.jsx';
-import FilterLists from '../components/FilterLists.jsx';
-import TaskLists from '../components/TaskLists.jsx';
+import Addtask from '../components/todoLists/Addtask.jsx';
+import DialogBox from '../components/todoLists/DialogBox.jsx';
+import FilterLists from '../components/todoLists/FilterLists.jsx';
+import TaskLists from '../components/todoLists/TaskLists.jsx';
 import { addUsertodoListData } from '../store/reducers/todolists/todoLists';
 
 export default function TodoLists() {

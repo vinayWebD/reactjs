@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../assets/css/app.scss';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
-import Footer from '../components/Footer.jsx';
-import Header from '../components/Header.jsx';
+import Footer from '../components/layout/Footer.jsx';
+import Header from '../components/layout/Header.jsx';
 
 export default function Layout({ children }) {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
     <div className="page-data-wrap-seprator">
       <Header />

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../assets/css/infoUpdate.scss';
+import '../../assets/css/infoUpdate.scss';
 
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -16,7 +16,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
-import { addUserData } from '../store/reducers/authentication/authentication';
+import { addUserData } from '../../store/reducers/authentication/authentication';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;

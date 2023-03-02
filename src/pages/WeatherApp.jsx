@@ -44,7 +44,7 @@ export default function WeatherApp() {
               }}
             />
             <button id="searchBtn" onClick={() => getData()}>
-              SEARCH
+              Search
             </button>
           </div>
           <p className="errorPara">{errorMessage}</p>

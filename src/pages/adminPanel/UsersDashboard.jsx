@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import '../assets/css/usersDashboard.scss';
+import '../../assets/css/usersDashboard.scss';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -13,7 +13,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
-import { addUserData } from '../store/reducers/authentication/authentication';
+import { addUserData } from '../../store/reducers/authentication/authentication';
 
 export default function UsersDashboard() {
   const usersListsArray = useSelector((state) => state.authentication.usersList);

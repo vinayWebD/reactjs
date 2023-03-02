@@ -23,9 +23,10 @@ import '../assets/css/apiFetchTask2.scss';
 export default function ApiFetchTask2() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [dateFromValue, setDateFromValue] = useState([null, null]);
-  const [dateToValue, setDateToValue] = useState([null, null]);
+  const [dateFromValue, setDateFromValue] = useState(null);
+  const [dateToValue, setDateToValue] = useState(null);
 
+  const [tableRowAllData, setTableRowAllData] = useState('');
   const [tableRowData, setTableRowData] = useState('');
   const [tableColumnData, setTableColumnData] = useState([]);
   const [searchInputValue, setSearchInputValue] = useState('');
@@ -58,6 +59,7 @@ export default function ApiFetchTask2() {
         };
         filteredArray.push(newObj);
       });
+      setTableRowAllData(filteredArray);
       setTableRowData(filteredArray);
     }
   }, [fetchedData]);
@@ -77,20 +79,65 @@ export default function ApiFetchTask2() {
     }
   }, [tableRowData]);
 
+  function returnDate(dateValue) {
+    let tempDate = moment(
+      `${dateValue.$D} ${dateValue.$M + 1} ${dateValue.$y}`,
+      'DD MM YYYY',
+    ).format('YYYY-MM-DD');
+    return tempDate;
+  }
+
   function searchData() {
-    console.log('from and to ', dateFromValue.$d, dateToValue.$D, dateToValue.$M, dateToValue.$y);
-    let tempArr = fetchedData.users.filter((obj) => {
-      if (obj.title.includes(searchInputValue)) {
-        return obj;
+    if (searchInputValue || dateFromValue || dateToValue) {
+      let tempFromDate;
+      let tempToDate;
+      if (dateFromValue) {
+        tempFromDate = returnDate(dateFromValue);
       }
-    });
-    if (tempArr.length == 0) {
-      setFilterErrorMsg('No match Found');
-      setTableRowData(fetchedData.posts);
-    } else {
-      setTableRowData(tempArr);
+      if (dateToValue) {
+        tempToDate = returnDate(dateToValue);
+      }
+      let tempArr = tableRowAllData.filter((obj) => {
+        let isAfterDate = true;
+        let isBeforeDate = true;
+        if (tempFromDate) {
+          isAfterDate = moment(obj.birthDate).isAfter(tempFromDate) ? true : false;
+        }
+        if (tempToDate) {
+          isBeforeDate = moment(obj.birthDate).isBefore(tempToDate) ? true : false;
+        }
+        if (obj.firstName.includes(searchInputValue) && isAfterDate && isBeforeDate) {
+          return obj;
+        }
+      });
+      if (tempArr.length == 0) {
+        // setFilterErrorMsg('No match Found');
+        setTableRowData([
+          {
+            id: '',
+            firstName: '',
+            lastName: '',
+            maidenName: '',
+            age: '',
+            gender: '',
+            email: '',
+            phone: '',
+            username: '',
+            password: '',
+            birthDate: '',
+          },
+        ]);
+      } else {
+        setTableRowData(tempArr);
+      }
     }
+  }
+
+  function resetTableData() {
     setSearchInputValue('');
+    setDateFromValue(null);
+    setDateToValue(null);
+    setTableRowData(tableRowAllData);
   }
 
   const handleChangePage = (event, newPage) => {
@@ -120,8 +167,11 @@ export default function ApiFetchTask2() {
             },
           }}
           value={searchInputValue}
-          onChange={(e) => setSearchInputValue(e.target.value)}
-          label="Search Title"
+          onChange={(e) => {
+            setFilterErrorMsg('');
+            setSearchInputValue(e.target.value);
+          }}
+          label="Search FirstName"
         />
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -129,6 +179,7 @@ export default function ApiFetchTask2() {
             label="From"
             value={dateFromValue}
             onChange={(newValue) => {
+              setFilterErrorMsg('');
               setDateFromValue(newValue);
             }}
             renderInput={(params) => (
@@ -144,7 +195,7 @@ export default function ApiFetchTask2() {
                     padding: '9.5px 14px',
                   },
                   '& .MuiFormLabel-root': {
-                    color: 'rgba(0, 0, 0, 0.6)',
+                    color: 'rgba(0, 0, 0, 0.6) !important',
                   },
                   '& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
                     borderColor: 'rgba(0, 0, 0, 0.25)',
@@ -160,6 +211,7 @@ export default function ApiFetchTask2() {
             label="To"
             value={dateToValue}
             onChange={(newValue) => {
+              setFilterErrorMsg('');
               setDateToValue(newValue);
             }}
             renderInput={(params) => (
@@ -175,7 +227,7 @@ export default function ApiFetchTask2() {
                     padding: '9.5px 14px',
                   },
                   '& .MuiFormLabel-root': {
-                    color: 'rgba(0, 0, 0, 0.6)',
+                    color: 'rgba(0, 0, 0, 0.6) !important',
                   },
                   '& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
                     borderColor: 'rgba(0, 0, 0, 0.25)',
@@ -187,7 +239,10 @@ export default function ApiFetchTask2() {
         </LocalizationProvider>
 
         <Button variant="contained" onClick={() => searchData()}>
-          Filter
+          Search
+        </Button>
+        <Button variant="contained" onClick={() => resetTableData()}>
+          Reset
         </Button>
       </div>
       <p className="error">{filterErrorMsg}</p>
@@ -215,7 +270,7 @@ export default function ApiFetchTask2() {
                       <TableRow hover role="checkbox" tabIndex={-1} key={rowObj.id}>
                         {tableColumnData.map((column) => {
                           let value = String(rowObj[column.id]);
-                          if (column.id == 'birthDate') {
+                          if (column.id == 'birthDate' && rowObj[column.id]) {
                             value = moment(String(rowObj[column.id]), 'YYYY-MM-DD').format(
                               'MMM Do YYYY',
                             );

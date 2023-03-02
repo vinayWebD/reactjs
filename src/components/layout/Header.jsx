@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import navIcon from '../assets/images/app/navIcon.jpg';
-import { updateUserInfo } from '../store/reducers/authentication/authentication';
+import navIcon from '../../assets/images/app/navIcon.jpg';
+import { updateUserInfo } from '../../store/reducers/authentication/authentication';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -26,13 +26,16 @@ export default function Header() {
             <Link to="/">About</Link>
           </li>
           <li>
-            <Link to="/">Tech Stack</Link>
+            {/* <Link to="/#techStack">Tech Stack</Link> */}
+            <a href="#techStack">Tech Stack</a>
           </li>
           <li>
-            <Link to="/">Projects</Link>
+            {/* <Link to="/">Projects</Link> */}
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <Link to="/">Contact</Link>
+            {/* <Link to="/">Contact</Link> */}
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </div>

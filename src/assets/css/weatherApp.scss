@@ -53,12 +53,15 @@
 }
 
 .searchBlock #searchBtn {
-  width: 100px;
-  border: 2px solid orange;
-  color: #787676;
-  height: 33px;
-  font-weight: bolder;
+  /* width: 100px; */
+  border: 2px solid #f89e00;
+  color: #656565;
+  /* height: 33px; */
+  background: #f1f1f1;
+  /* font-weight: bolder; */
   border-radius: 3px;
+  padding: 6px 15px;
+  font-size: 18px;
 }
 
 .displayBlock {
