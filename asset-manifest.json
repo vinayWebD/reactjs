@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactjs/static/css/main.6f1b1601.css",
-    "main.js": "/reactjs/static/js/main.68d257de.js",
+    "main.css": "/reactjs/static/css/main.12aef85a.css",
+    "main.js": "/reactjs/static/js/main.213fbe5c.js",
     "static/js/787.212ab26d.chunk.js": "/reactjs/static/js/787.212ab26d.chunk.js",
     "static/media/logos_sass.svg": "/reactjs/static/media/logos_sass.4f452f39442aa8395f8c11e772cec9db.svg",
     "static/media/logos_react.svg": "/reactjs/static/media/logos_react.ea8d7c26d9ce7bc5a6882779aa8cacdc.svg",
@@ -13,12 +13,12 @@
     "static/media/akar-icons_github-fill.svg": "/reactjs/static/media/akar-icons_github-fill.36dc0fbc093986dc6624f3ad8a37ab2a.svg",
     "static/media/vscode-icons_file-type-css.svg": "/reactjs/static/media/vscode-icons_file-type-css.1dc1ff133b346eb946ede2b781ce69f8.svg",
     "static/media/vscode-icons_file-type-html.svg": "/reactjs/static/media/vscode-icons_file-type-html.b4f276884d6135db3f45c375dcc50b01.svg",
-    "main.6f1b1601.css.map": "/reactjs/static/css/main.6f1b1601.css.map",
-    "main.68d257de.js.map": "/reactjs/static/js/main.68d257de.js.map",
+    "main.12aef85a.css.map": "/reactjs/static/css/main.12aef85a.css.map",
+    "main.213fbe5c.js.map": "/reactjs/static/js/main.213fbe5c.js.map",
     "787.212ab26d.chunk.js.map": "/reactjs/static/js/787.212ab26d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f1b1601.css",
-    "static/js/main.68d257de.js"
+    "static/css/main.12aef85a.css",
+    "static/js/main.213fbe5c.js"
   ]
 }
